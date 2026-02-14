@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Ecosense</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css"> <!-- ملف التنسيق الجديد -->
+</head>
+
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+
+            <h2 class="auth-title" data-en="Login" data-ar="تسجيل الدخول">Login</h2>
+
+            <div class="input-group">
+                <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+                <input id="loginEmail" type="email" data-en-placeholder="Enter your email" data-ar-placeholder="أدخل بريدك">
+            </div>
+
+            <div class="input-group">
+                <label data-en="Password" data-ar="كلمة المرور">Password</label>
+                <input id="loginPassword" type="password" data-en-placeholder="Enter password" data-ar-placeholder="أدخل كلمة المرور">
+            </div>
+
+            <button id="loginBtn" class="btn-auth">Login</button>
+
+            <a href="reset.html" class="forgot-link" data-en="Forgot Password?" data-ar="نسيت كلمة المرور؟"></a>
+
+            <p class="auth-switch">
+                <span data-en="Don't have an account?" data-ar="ليس لديك حساب؟"></span>
+                <a href="signup.html" data-en="Sign Up" data-ar="إنشاء حساب">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

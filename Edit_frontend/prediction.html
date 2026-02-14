@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlElement">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-en="Prediction" data-ar="التنبؤ">Prediction</title>
+
+  <!-- استخدم ملف الـ CSS الرفعه عندك -->
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo"><img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo"></div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" data-key="home">Home</a>
+        <a href="dataset.html" data-key="dataset">Dataset</a>
+        <a href="analysis.html" data-key="analysis">Analysis</a>
+        <a href="prediction.html" class="active" data-key="prediction">Prediction</a>
+        <a href="about.html" data-key="about">About</a>
+      </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="menuBtn">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+      <button class="icon-btn" id="langBtn" aria-label="Toggle language"><i class="fa-solid fa-globe"></i></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+    </div>
+  </header>
+
+  <main class="prediction-section" id="predictionPage">
+
+    <!-- LEFT: Inputs + CSV -->
+    <section class="prediction-card" id="leftCard">
+      <h3 data-en="Input sensors" data-ar="قيم الحساسات">Input sensors</h3>
+
+      <div class="grid-2">
+        <input id="i_soil" type="text" data-en-placeholder="Soil Moisture (%)" data-ar-placeholder="رطوبة التربة (%)" placeholder="Soil Moisture (%)">
+        <input id="i_ambient" type="text" data-en-placeholder="Ambient Temp (°C)" data-ar-placeholder="درجة الحرارة المحيطة (°C)" placeholder="Ambient Temp (°C)">
+        <input id="i_soiltemp" type="text" data-en-placeholder="Soil Temp (°C)" data-ar-placeholder="درجة حرارة التربة (°C)" placeholder="Soil Temp (°C)">
+        <input id="i_humidity" type="text" data-en-placeholder="Humidity (%)" data-ar-placeholder="الرطوبة (%)" placeholder="Humidity (%)">
+        <input id="i_nitrogen" type="text" data-en-placeholder="Nitrogen (N)" data-ar-placeholder="النيتروجين (N)" placeholder="Nitrogen (N)">
+        <input id="i_phosphorus" type="text" data-en-placeholder="Phosphorus (P)" data-ar-placeholder="الفوسفور (P)" placeholder="Phosphorus (P)">
+        <input id="i_potassium" type="text" data-en-placeholder="Potassium (K)" data-ar-placeholder="البوتاسيوم (K)" placeholder="Potassium (K)">
+        <input id="i_chlorophyll" type="text" data-en-placeholder="Chlorophyll" data-ar-placeholder="الكلوروفيل" placeholder="Chlorophyll">
+      </div>
+
+      <div class="btn-row">
+        <button id="predictNowBtn" class="main-btn" data-en="Predict Now" data-ar="تنبؤ الآن">Predict Now</button>
+        <button id="retryBtn" class="secondary-btn" data-en="Retry" data-ar="إعادة المحاولة">Retry</button>
+        <button id="lastPredBtn" class="secondary-btn" data-en="Last Predictions" data-ar="آخر التنبؤات">Last Predictions</button>
+      </div>
+
+      <p class="done-text" id="doneText" data-en="Prediction complete ✓" data-ar="اكتمل التنبؤ ✓" style="display:none;">Prediction complete ✓</p>
+
+      <hr class="divider">
+
+      <h3 data-en="Batch Predict (CSV)" data-ar="تنبؤ من ملف CSV">Batch Predict (CSV)</h3>
+
+      <div class="csv-container" id="csvContainer">
+        <div class="csv-left">
+          <button class="upload-btn" id="uploadCsvBtn" data-en="Upload CSV" data-ar="رفع ملف CSV">Upload CSV
+  <i class="fa-solid fa-file-arrow-up"></i>
+</button>
+          <button id="predictCsvBtn" data-en="Predict CSV" data-ar="تنبؤ CSV">Predict CSV</button>
+
+          <div class="csv-info">
+            <p><strong data-en="Status:" data-ar="الحالة:">Status:</strong> <span id="csvStatusText">No file</span></p>
+            <p><strong data-en="Rows:" data-ar="الصفوف:">Rows:</strong> <span id="csvRows">-</span></p>
+            <p><strong data-en="Columns:" data-ar="الأعمدة:">Columns:</strong> <span id="csvCols">-</span></p>
+          </div>
+
+          <button id="downloadCsvBtn" data-en="Download Results" data-ar="تحميل النتائج">Download Results</button>
+        </div>
+
+        <div class="csv-right">
+          <div class="table-wrapper">
+            <table class="csv-table" id="csvPreviewTable">
+  <thead>
+    <tr>
+      <th>Soil Moisture</th>
+      <th>BH1750</th>
+      <th>MQ-135</th>
+      <th>ESP32-CAM</th>
+      <th>TCS34725</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- rows from CSV -->
+  </tbody>
+</table>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Result (SVG + details) -->
+    <aside class="prediction-result" id="resultCard" aria-live="polite">
+      <div class="status-tag" id="statusTag"><i class="fa-solid fa-check"></i> <span id="statusText" data-en="Plant in good condition" data-ar="النبات بحالة جيدة">Plant in good condition</span></div>
+
+      <div class="plant-icon" id="plantSvgWrap" aria-hidden="true">
+        <!-- SVG that will change color/shape subtly -->
+        <svg id="plantSvg" width="230" height="230" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+          <rect id="pot" x="60" y="130" width="80" height="20" rx="5" fill="#8B5E3C"/>
+          <rect id="stem" x="97" y="60" width="6" height="70" rx="3" fill="#3CA34B"/>
+          <circle id="bud" cx="100" cy="55" r="6" fill="#3CA34B"/>
+          <path id="leafL" d="M98 90 C70 70, 55 60, 55 50 C55 40, 65 35, 75 40 C85 45, 95 60, 98 75"
+                fill="none" stroke="#3CA34B" stroke-width="8" stroke-linecap="round"/>
+          <path id="leafR" d="M102 90 C130 70, 145 60, 145 50 C145 40, 135 35, 125 40 C115 45, 105 60, 102 75"
+                fill="none" stroke="#3CA34B" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <div class="result-box">
+        <div class="result-status"><span class="status-dot" id="statusDot" aria-hidden="true"></span> <span class="status-text" id="statusLabel" data-en="Healthy" data-ar="صحي">Healthy</span></div>
+        <p class="result-desc" id="resultDesc" data-en="Plant looks good" data-ar="النبات يبدو جيدًا">Plant looks good</p>
+        <p class="result-conf" id="resultConf" data-en="Confidence: 92%" data-ar="نسبة الثقة: 92%">Confidence: 92%</p>
+      </div>
+    </aside>
+
+  </main>
+
+  <div id="sideMenu" class="side-menu">
+    <div class="side-header">
+        <h3>Menu</h3>
+        <button id="closeMenu" class="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <ul class="menu-list">
+
+<ul class="menu-list">
+
+<li class="menu-item" data-page="index.html"
+    data-en="Home" data-ar="الرئيسية">Home</li>
+
+<li class="menu-item" data-page="dashboard.html"
+    data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+
+<li class="menu-item" data-page="sensor.html"
+    data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+
+<li class="menu-item" data-page="history.html"
+    data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+
+<li class="menu-item" data-page="chat.html"
+    data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+
+<li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+
+<li class="menu-item" data-page="analysis.html"
+    data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+
+<li class="menu-item" data-page="plant-report.html"
+    data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+
+<li class="menu-item" data-page="profile.html"
+    data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+
+<li class="menu-item" data-page="admin.html"
+    data-en="Admin Panel" data-ar="لوحة الادارة">Admin Panel</li>
+
+</ul>
+
+</div>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+
+  <!-- shared script (واحد) -->
+  <script src="script.js"></script>
+</body>
+</html>

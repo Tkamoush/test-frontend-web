@@ -1,0 +1,138 @@
+<!doctype html>
+<html id="htmlElement" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-en="Plant Report" data-ar="تقرير النبات">Plant Report</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo"><img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo"></div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-key="home">Home</a>
+      <a href="dataset.html" data-key="dataset">Dataset</a>
+      <a href="analysis.html" data-key="analysis">Analysis</a>
+      <a href="prediction.html" data-key="prediction">Prediction</a>
+      <a href="about.html" data-key="about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <button class="icon-btn" id="langBtn" aria-label="Toggle language"><i class="fa-solid fa-globe"></i></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-container report-page">
+
+    <section class="page-header">
+      <h1 data-en="Plant Report" data-ar="تقرير النبات">Plant Report</h1>
+      <p class="subtitle" data-en="Summary & charts for plant health across fields" data-ar="ملخص ومخططات لحالة النبات عبر المزارع">
+        Summary & charts for plant health across fields
+      </p>
+    </section>
+
+    <section class="report-grid">
+
+      <!-- Left: key stats -->
+      <aside class="report-side">
+        <div class="stat-card">
+          <h4 data-en="Total Plants" data-ar="إجمالي النباتات">Total Plants</h4>
+          <div class="stat-value" id="rp_totalPlants">240</div>
+        </div>
+
+        <div class="stat-card">
+          <h4 data-en="Healthy" data-ar="سليم">Healthy</h4>
+          <div class="stat-value" id="rp_healthy">168</div>
+        </div>
+
+        <div class="stat-card">
+          <h4 data-en="Under Stress" data-ar="تحت الضغط">Under Stress</h4>
+          <div class="stat-value" id="rp_stress">42</div>
+        </div>
+
+        <div class="stat-card">
+          <h4 data-en="Diseased" data-ar="مريض">Diseased</h4>
+          <div class="stat-value" id="rp_diseased">30</div>
+        </div>
+
+        <div class="img-box">
+          <h4 data-en="Representative Image" data-ar="صورة توضيحية">Representative Image</h4>
+          <div class="report-image-placeholder" id="reportImage">
+            <span data-en="No image yet" data-ar="لا توجد صورة بعد">No image yet</span>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Right: chart + table -->
+      <section class="report-main">
+
+        <div class="card">
+          <h3 data-en="Health Distribution (Last 30 days)" data-ar="توزيع الحالة (آخر 30 يوم)">Health Distribution (Last 30 days)</h3>
+          <div class="chart-wrap">
+            <canvas id="plantReportChart" aria-label="Plant health chart" role="img"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 data-en="Latest Predictions" data-ar="أحدث التنبؤات">Latest Predictions</h3>
+          <div class="table-wrapper">
+            <table id="reportTable" class="csv-table">
+              <thead>
+                <tr>
+                  <th data-en="Date" data-ar="التاريخ">Date</th>
+                  <th data-en="Plant" data-ar="النبات">Plant</th>
+                  <th data-en="Status" data-ar="الحالة">Status</th>
+                  <th data-en="Confidence" data-ar="الثقة">Confidence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>2025-11-23</td><td>Plant #301</td><td class="green-text">Healthy</td><td>92%</td></tr>
+                <tr><td>2025-11-22</td><td>Plant #298</td><td class="yellow-text">Under Stress</td><td>78%</td></tr>
+                <tr><td>2025-11-21</td><td>Plant #256</td><td class="red-text">Diseased</td><td>61%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </section>
+
+    <footer class="page-footer">© 2025 • Ecosense • Plant Report</footer>
+
+  </main>
+
+  <!-- SIDE MENU (reused) -->
+  <div id="sideMenu" class="side-menu">
+    <div class="side-header">
+      <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+      <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <ul class="menu-list">
+      <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+      <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+      <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+      <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+      <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+      <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+      <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+      <li class="menu-item" data-page="plant-report.html" data-en="Report" data-ar="تقرير">Report</li>
+      <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+      <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الادارة">Admin Panel</li>
+    </ul>
+  </div>
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

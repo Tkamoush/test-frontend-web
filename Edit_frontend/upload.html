@@ -1,0 +1,147 @@
+<!doctype html>
+<html id="htmlElement" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</title>
+
+  <!-- استخدم ملف الستايل الموحد + صفحة CSS الخاصة تضيف في اخر style.css -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo"><img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo"></div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-key="home">Home</a>
+      <a href="dataset.html" class="active" data-key="dataset">Dataset</a>
+      <a href="analysis.html" data-key="analysis">Analysis</a>
+      <a href="prediction.html" data-key="prediction">Prediction</a>
+      <a href="about.html" data-key="about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="menuBtn" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
+      <button class="icon-btn" id="langBtn" aria-label="Toggle language"><i class="fa-solid fa-globe"></i></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-container upload-page">
+
+    <section class="page-header">
+      <h1 data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</h1>
+      <p class="subtitle" data-en="Upload CSV files or plant images to run predictions" data-ar="رفع ملفات CSV أو صور النباتات لتشغيل التنبؤات">
+        Upload CSV files or plant images to run predictions
+      </p>
+    </section>
+
+    <!-- UPLOAD ROW -->
+    <section class="upload-row">
+
+      <!-- CSV UPLOAD -->
+      <div class="upload-card">
+        <h3 data-en="Upload CSV File" data-ar="رفع ملف CSV">Upload CSV File</h3>
+        <p class="muted" data-en="Supported: .csv • Max size: 20MB" data-ar="مدعوم: .csv • أقصى حجم: 20MB">Supported: .csv • Max size: 20MB</p>
+
+        <div id="csvDrop" class="dropzone" tabindex="0" aria-label="CSV dropzone">
+          <div class="dz-inner">
+            <i class="fa-solid fa-upload fa-2x"></i>
+            <p data-en="Drag & Drop CSV here" data-ar="اسحب وأسقط ملف CSV هنا">Drag & Drop CSV here</p>
+            <button id="browseCsvBtn" class="btn small upload-btn" data-en="Browse" data-ar="تصفح">Browse</button>
+          </div>
+        </div>
+
+        <div class="csv-meta">
+          <div><strong data-en="Status:" data-ar="الحالة:">Status:</strong> <span id="csvStatusText">No file</span></div>
+          <div><strong data-en="Rows:" data-ar="الصفوف:">Rows:</strong> <span id="csvRows">-</span></div>
+          <div><strong data-en="Cols:" data-ar="الأعمدة:">Cols:</strong> <span id="csvCols">-</span></div>
+        </div>
+      </div>
+
+      <!-- IMAGE UPLOAD -->
+      <div class="upload-card">
+        <h3 data-en="Upload Images" data-ar="رفع الصور">Upload Images</h3>
+        <p class="muted" data-en="Supported: JPG, PNG • Up to 10 images" data-ar="مدعوم: JPG, PNG • حتى 10 صور">Supported: JPG, PNG • Up to 10 images</p>
+
+        <div id="imgDrop" class="dropzone" tabindex="0" aria-label="Image dropzone">
+          <div class="dz-inner">
+            <i class="fa-solid fa-image fa-2x"></i>
+            <p data-en="Drag & Drop images" data-ar="اسحب وأسقط الصور">Drag & Drop images</p>
+            <button id="browseImgBtn" class="btn small upload-btn" data-en="Browse" data-ar="تصفح">Browse</button>
+          </div>
+        </div>
+
+        <div id="thumbs" class="thumbs"></div>
+      </div>
+
+    </section>
+
+    <!-- CSV PREVIEW -->
+    <section class="csv-preview-card">
+      <h3 data-en="CSV Preview" data-ar="معاينة CSV">CSV Preview</h3>
+      <p class="muted" data-en="First 3 rows preview" data-ar="معاينة أول 3 صفوف">First 3 rows preview</p>
+
+      <div class="table-wrapper">
+        <table id="csvPreviewTable" class="csv-table" aria-label="CSV preview">
+          <thead>
+            <tr id="csvPreviewHead"></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="preview-actions">
+        <button id="predictCsvBtn" class="btn primary" data-en="Predict CSV" data-ar="تنبؤ من CSV">Predict CSV</button>
+        <button id="predictImgsBtn" class="btn primary outline" data-en="Predict Images" data-ar="تنبؤ من الصور">Predict Images</button>
+      </div>
+    </section>
+
+    <footer class="page-footer">© 2025 • Ecosense • Upload Dataset</footer>
+
+  </main>
+
+  <!-- SIDE MENU (reused) -->
+  <div id="sideMenu" class="side-menu">
+    <div class="side-header">
+      <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+      <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+   <ul class="menu-list">
+
+  <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+
+  <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+
+  <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+
+  <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+
+  <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+
+   <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+  <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+
+  <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+
+  <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+
+  <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الادارة">Admin Panel</li>
+
+</ul>
+
+  </div>
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+  <!-- صفحة الجافاسكربت الأساسية (يُفترض أن ملف script.js عندك موجود وسنضيف الجزء الخاص بهذه الصفحة أيضاً) -->
+  <script src="script.js"></script>
+
+</body>
+</html>

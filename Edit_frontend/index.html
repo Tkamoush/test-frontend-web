@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlElement">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecosense | Home</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo">
+      <img
+        src="images/Logo-removebg-preview-removebg-preview.png"
+        alt="Ecosense Logo"
+        class="logo-img"
+      />
+    </div>
+
+    <!-- NAV LINKS -->
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" class="active" data-key="home">Home</a>
+      <a href="dataset.html" data-key="dataset">Dataset</a>
+      <a href="analysis.html" data-key="analysis">Analysis</a>
+      <a href="prediction.html" data-key="prediction">Prediction</a>
+      <a href="about.html" data-key="about">About</a>
+    </nav>
+
+    <!-- ACTIONS -->
+    <div class="nav-actions">
+      <button class="icon-btn" id="menuBtn" aria-label="Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
+      <button class="icon-btn" id="langBtn" aria-label="Language">
+        <i class="fa-solid fa-globe"></i>
+      </button>
+
+      <button class="icon-btn" id="themeBtn" aria-label="Theme">
+        <i class="fa-solid fa-sun"></i>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- DASHBOARD CARDS -->
+  <section class="cards">
+
+    <div class="card">
+      <div class="card-title">
+        <span data-key="total_plants" data-en="Total Plants" data-ar="إجمالي النباتات">
+          Total Plants
+        </span>
+        <span class="dot gray"></span>
+      </div>
+      <div class="value">240</div>
+    </div>
+
+    <div class="card green">
+      <div class="card-title" data-en="Healthy Plants" data-ar="النباتات السليمة">
+        Healthy Plants
+      </div>
+      <div class="value">68%</div>
+    </div>
+
+    <div class="card yellow">
+      <div class="card-title" data-key="under_stress" data-en="Under Stress" data-ar="تحت الإجهاد">
+        Under Stress
+      </div>
+      <div class="value">22%</div>
+    </div>
+
+    <div class="card red">
+      <div class="card-title" data-key="diseased_plants" data-en="Diseased Plants" data-ar="نباتات مريضة">
+        Diseased Plants
+      </div>
+      <div class="value">10%</div>
+    </div>
+
+  </section>
+
+  <!-- CHART SECTION -->
+  <section class="chart-section">
+    <h3
+      class="chart-title"
+      data-en="Plant Health Distribution"
+      data-ar="توزيع صحة النباتات"
+    >
+      Plant Health Distribution
+    </h3>
+
+    <div class="chart-box">
+      <canvas id="plantChart"></canvas>
+    </div>
+  </section>
+
+  <!-- BOTTOM BUTTON -->
+  <div class="home-bottom-btn">
+    <button class="home-analyze-btn" data-key="analyzeBtn">
+      Analyze New Data
+    </button>
+  </div>
+
+  <!-- SIDE MENU -->
+  <aside id="sideMenu" class="side-menu">
+    <div class="side-header">
+      <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+      <button id="closeMenu" class="close-btn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <ul class="menu-list">
+      <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+      <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+      <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+      <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+      <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+      <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+      <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+      <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+      <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+      <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الإدارة">Admin Panel</li>
+    </ul>
+  </aside>
+  
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

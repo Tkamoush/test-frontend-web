@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img">
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html" data-key="home">Home</a>
+        <a href="dataset.html" data-key="dataset">Dataset</a>
+        <a href="analysis.html" data-key="analysis">Analysis</a>
+        <a href="prediction.html" data-key="prediction">Prediction</a>
+        <a href="about.html" data-key="about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="icon-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        <button class="icon-btn" id="langBtn"><i class="fa-solid fa-globe"></i></button>
+        <button class="icon-btn" id="themeBtn"><i class="fa-solid fa-sun"></i></button>
+    </div>
+</header>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu">
+    <div class="side-header">
+        <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+        <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="menu-list">
+        <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+        <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+        <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+        <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+        <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+        <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+        <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+        <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+        <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+        <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الإدارة">Admin Panel</li>
+    </ul>
+</div>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+<!-- MAIN PAGE -->
+<main class="page-container">
+
+    <section class="page-header">
+        <h1 data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</h1>
+        <p class="subtitle"
+           data-en="Previous predictions with confidence and sensor values"
+           data-ar="التنبؤات السابقة مع نسب الدقة وقراءات المستشعر">
+           Previous predictions with confidence and sensor values
+        </p>
+    </section>
+
+    <!-- FILTER BAR -->
+    <section class="filter-row">
+
+        <div class="filter-box">
+            <label data-en="Filter by date:" data-ar="تصفية حسب التاريخ:">Filter by date:</label>
+            <input type="date" id="filterDate">
+        </div>
+
+        <div class="filter-box">
+            <label data-en="Status:" data-ar="الحالة:">Status:</label>
+            <select id="filterStatus">
+                <option value="" data-en="All" data-ar="الكل">All</option>
+                <option value="Healthy" data-en="Healthy" data-ar="سليم">Healthy</option>
+                <option value="Under Stress" data-en="Under Stress" data-ar="تحت الضغط">Under Stress</option>
+                <option value="Diseased" data-en="Diseased" data-ar="مريض">Diseased</option>
+            </select>
+        </div>
+
+        <div class="filter-box">
+            <label data-en="Min confidence:" data-ar="أقل دقة:">Min confidence:</label>
+            <input type="number" id="filterConf" placeholder="0 - 100">
+        </div>
+
+        <button class="apply-btn" id="applyFilter" data-en="Apply" data-ar="تطبيق">Apply</button>
+
+    </section>
+
+    <!-- TABLE -->
+    <section class="table-wrapper prediction-table">
+        <table class="recent-table">
+            <thead>
+                <tr>
+                    <th data-en="Date" data-ar="التاريخ">Date</th>
+                    <th data-en="Result" data-ar="النتيجة">Result</th>
+                    <th data-en="Confidence" data-ar="دقة التنبؤ">Confidence</th>
+                    <th data-en="Moisture" data-ar="الرطوبة">Moisture</th>
+                    <th data-en="Temp" data-ar="درجة الحرارة">Temp</th>
+                    <th data-en="Image" data-ar="الصورة">Image</th>
+                    <th data-en="Sensor ID" data-ar="رقم المستشعر">Sensor ID</th>
+                    <th data-en="Action" data-ar="إجراء">Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="historyTableBody">
+                <!-- auto-filled by JS -->
+            </tbody>
+        </table>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

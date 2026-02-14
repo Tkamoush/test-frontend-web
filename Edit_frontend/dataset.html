@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-en="Dataset" data-ar="البيانات">Dataset</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo">
+        </div>
+
+        <div class="nav-links" id="navLinks">
+            <a href="index.html" data-key="home">Home</a>
+            <a class="active" href="dataset.html" data-key="dataset">Dataset</a>
+            <a href="analysis.html" data-key="analysis">Analysis</a>
+            <a href="prediction.html" data-key="prediction">Prediction</a>
+            <a href="about.html" data-key="about">About</a>
+        </div>
+
+        <div class="nav-actions">
+            <button class="icon-btn" id="menuBtn">
+  <i class="fa-solid fa-bars"></i>
+</button>
+
+            <button class="icon-btn" id="langBtn">
+                <i class="fa-solid fa-globe"></i>
+            </button>
+
+            <button class="icon-btn" id="themeBtn">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+        </div>
+    </div>
+<div class="dataset-header">
+
+    <div class="dataset-controls">
+
+        <div class="control-block">
+            <label data-en="Search" data-ar="بحث">Search</label>
+            <input 
+                id="searchInput" 
+                class="dataset-input" 
+                type="text" 
+                data-en-placeholder="Type to filter..." 
+                data-ar-placeholder="اكتب للبحث..."
+                placeholder="Type to filter..."
+            >
+        </div>
+
+        <div class="control-block">
+            <label data-en="Filter" data-ar="تصفية">Filter</label>
+            <select id="filterSelect" class="dataset-select">
+                <option value="" selected data-en="Select status..." data-ar="اختر الحالة...">Select status...</option>
+                <option value="healthy" data-en="Healthy" data-ar="سليم">Healthy</option>
+                <option value="stress" data-en="Under Stress" data-ar="تحت الضغط">Under Stress</option>
+                <option value="diseased" data-en="Diseased" data-ar="مريض">Diseased</option>
+            </select>
+        </div>
+
+       <button class="csv-upload-btn" id="uploadCsvBtn" data-key="upload_csv">
+    <i class="fa-solid fa-file-arrow-up"></i>
+    Upload CSV
+</button>
+    </div>
+
+    <button id="downloadBtn" class="download-btn" data-en="Download" data-ar="تحميل">Download</button>
+
+</div>
+
+<div class="dataset-table-wrapper">
+    <table class="dataset-table">
+        <thead>
+            <tr>
+                <th data-en="Timestamp" data-ar="الوقت">Timestamp</th>
+                <th data-en="Soil Moisture" data-ar="رطوبة التربة">Soil Moisture</th>
+                <th data-en="BH1750" data-ar="شدة الإضاءة">BH1750</th>
+                <th data-en="MQ-135" data-ar="جودة الهواء">MQ-135</th>
+                <th data-en="ESP32-CAM" data-ar="الكاميرا">ESP32-CAM</th>
+                <th data-en="TCS34725" data-ar="مستشعر الألوان">TCS34725</th>
+            </tr>
+        </thead>
+
+        <tbody id="datasetBody">
+            <!-- rows injected dynamically -->
+        </tbody>
+    </table>
+</div>
+
+<div id="sideMenu" class="side-menu">
+    <div class="side-header">
+        <h3>Menu</h3>
+        <button id="closeMenu" class="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+<ul class="menu-list">
+
+<li class="menu-item" data-page="index.html"
+    data-en="Home" data-ar="الرئيسية">Home</li>
+
+<li class="menu-item" data-page="dashboard.html"
+    data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+
+<li class="menu-item" data-page="sensor.html"
+    data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+
+<li class="menu-item" data-page="history.html"
+    data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+
+<li class="menu-item" data-page="chat.html"
+    data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+
+<li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+
+<li class="menu-item" data-page="analysis.html"
+    data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+
+<li class="menu-item" data-page="plant-report.html"
+    data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+
+<li class="menu-item" data-page="profile.html"
+    data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+
+<li class="menu-item" data-page="admin.html"
+    data-en="Admin Panel" data-ar="لوحة الادارة">Admin Panel</li>
+
+</ul>
+
+</div>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

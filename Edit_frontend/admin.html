@@ -1,0 +1,180 @@
+<!doctype html>
+<html id="htmlElement" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-en="Admin Panel" data-ar="لوحة الإدارة">Admin Panel</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo"><img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo"></div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-key="home">Home</a>
+      <a href="dataset.html" data-key="dataset">Dataset</a>
+      <a href="analysis.html" data-key="analysis">Analysis</a>
+      <a href="prediction.html" data-key="prediction">Prediction</a>
+      <a href="about.html" data-key="about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+      <button class="icon-btn" id="langBtn"><i class="fa-solid fa-globe"></i></button>
+      <button class="icon-btn" id="themeBtn"><i class="fa-solid fa-sun"></i></button>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="page-container admin-page">
+
+    <section class="page-header">
+      <h1 data-en="Admin Panel" data-ar="لوحة الإدارة">Admin Panel</h1>
+      <p class="subtitle"
+         data-en="Manage system data, users, sensors, and AI model"
+         data-ar="إدارة بيانات النظام، المستخدمين، الحساسات، ونموذج الذكاء الاصطناعي">
+         Manage system data, users, sensors, and AI model
+      </p>
+    </section>
+
+    <section class="admin-layout">
+
+      <!-- LEFT SIDE -->
+      <div class="admin-left">
+
+        <div class="admin-card">
+          <h3 data-en="Admin Actions" data-ar="إجراءات الإدارة">Admin Actions</h3>
+
+          <button class="btn primary" data-en="Add New Sensor" data-ar="إضافة حساس جديد">
+            Add New Sensor
+          </button>
+
+          <button class="btn primary" data-en="Add New User" data-ar="إضافة مستخدم جديد">
+            Add New User
+          </button>
+
+          <button class="btn primary" data-en="Retrain AI Model" data-ar="إعادة تدريب النموذج">
+            Retrain AI Model
+          </button>
+
+          <button class="btn danger" data-en="Delete All Logs" data-ar="حذف كل السجلات">
+            Delete All Logs
+          </button>
+        </div>
+
+        <div class="admin-card">
+          <h3 data-en="Quick Stats" data-ar="إحصائيات سريعة">Quick Stats</h3>
+
+          <p><strong data-en="Total Users:" data-ar="إجمالي المستخدمين:">Total Users:</strong> 12</p>
+          <p><strong data-en="Total Sensors:" data-ar="إجمالي الحساسات:">Total Sensors:</strong> 27</p>
+          <p><strong data-en="AI Model Version:" data-ar="إصدار نموذج الذكاء الاصطناعي:">AI Model Version:</strong> v2.3</p>
+          <p><strong data-en="Last Retrain:" data-ar="آخر إعادة تدريب:">Last Retrain:</strong> 3 days ago</p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="admin-right">
+
+        <div class="admin-card wide">
+          <h3 data-en="Manage Users" data-ar="إدارة المستخدمين">Manage Users</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th data-en="Name" data-ar="الاسم">Name</th>
+                <th data-en="Email" data-ar="البريد الإلكتروني">Email</th>
+                <th data-en="Role" data-ar="الدور">Role</th>
+                <th data-en="Action" data-ar="إجراء">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ahmed Ali</td>
+                <td>ahmed@example.com</td>
+                <td data-en="Admin" data-ar="مسؤول">Admin</td>
+                <td><button class="btn small" data-en="Edit" data-ar="تعديل">Edit</button></td>
+              </tr>
+
+              <tr>
+                <td>Sara Youssef</td>
+                <td>sara@example.com</td>
+                <td data-en="Student" data-ar="طالب">Student</td>
+                <td><button class="btn small" data-en="Edit" data-ar="تعديل">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="admin-card wide">
+          <h3 data-en="Manage Sensors" data-ar="إدارة الحساسات">Manage Sensors</h3>
+
+          <table>
+            <thead>
+              <tr>
+                <th data-en="Sensor" data-ar="الحساس">Sensor</th>
+                <th data-en="Location" data-ar="الموقع">Location</th>
+                <th data-en="Status" data-ar="الحالة">Status</th>
+                <th data-en="Action" data-ar="إجراء">Action</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td data-en="Sensor #03" data-ar="حساس #03">Sensor #03</td>
+                <td data-en="Greenhouse 1" data-ar="البيت المحمي 1">Greenhouse 1</td>
+                <td class="green" data-en="Online" data-ar="متصل">Online</td>
+                <td><button class="btn small" data-en="View" data-ar="عرض">View</button></td>
+              </tr>
+
+              <tr>
+                <td data-en="Sensor #02" data-ar="حساس #02">Sensor #02</td>
+                <td data-en="Field Zone A" data-ar="منطقة الحقل A">Field Zone A</td>
+                <td class="red" data-en="Offline" data-ar="غير متصل">Offline</td>
+                <td><button class="btn small" data-en="View" data-ar="عرض">View</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </section>
+
+    <footer class="page-footer">© 2025 • Ecosense • Admin Panel</footer>
+
+  </main>
+
+  <!-- SIDE MENU -->
+  <div id="sideMenu" class="side-menu">
+    <div class="side-header">
+      <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+      <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="menu-list">
+      <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+      <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+      <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+      <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+      <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+      <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+      <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+      <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+      <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الإدارة">Admin Panel</li>
+    </ul>
+  </div>
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html id="htmlElement" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</title>
+
+  <!-- Common styles (your main file) -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR (consistent with your other pages) -->
+  <header class="navbar">
+    <div class="logo"><img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo"></div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-key="home">Home</a>
+      <a href="dataset.html" data-key="dataset">Dataset</a>
+      <a href="analysis.html" data-key="analysis">Analysis</a>
+      <a href="prediction.html" data-key="prediction">Prediction</a>
+      <a href="about.html" data-key="about">About</a>
+      <a href="chat.html" class="active" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+      <button class="icon-btn" id="langBtn"><i class="fa-solid fa-globe"></i></button>
+      <button class="icon-btn" id="themeBtn"><i class="fa-solid fa-sun"></i></button>
+    </div>
+  </header>
+
+  <!-- SIDE MENU (reuse your side menu markup) -->
+  <div id="sideMenu" class="side-menu">
+    <div class="side-header">
+      <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+      <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="menu-list">
+      <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+      <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+      <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+      <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+      <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+      <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+      <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+      <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+    </ul>
+  </div>
+  <div id="menuOverlay" class="menu-overlay"></div>
+
+  <!-- ===== AI CHAT SECTION ===== -->
+  <main class="chat-section">
+    <div class="chat-container">
+
+      <!-- chat main column -->
+      <div class="chat-box" aria-live="polite">
+
+        <header class="chat-header">
+          <div>
+            <h2 class="chat-title" data-en="AI Plant Doctor" data-ar="طبيب النباتات الذكي">AI Plant Doctor</h2>
+            <p class="chat-sub" data-en="Ask the AI or attach an image to diagnose plant health."
+                              data-ar="اسأل الذكاء الاصطناعي أو ارفع صورة لتشخيص حالة النبات.">
+              Ask the AI or attach an image to diagnose plant health.
+            </p>
+          </div>
+          <div class="chat-actions">
+            <button id="clearChatBtn" class="icon-btn" title="Clear chat"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        </header>
+
+        <div id="chatWindow" class="chat-window" role="log"></div>
+
+        <div class="chat-input-area">
+          <input id="chatInput" type="text"
+                 data-en-placeholder="Type your question here..."
+                 data-ar-placeholder="اكتب سؤالك هنا..."
+                 placeholder="Type your question here..." />
+          <input id="chatImageInput" type="file" accept="image/*" style="display:none" />
+          <button id="attachBtn" class="icon-btn" title="Attach image"><i class="fa-solid fa-paperclip"></i></button>
+          <button id="sendBtn" class="main-btn" data-en="Send" data-ar="إرسال">Send</button>
+        </div>
+
+        <div id="typingIndicator" class="typing-indicator" aria-hidden="true" style="display:none">
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+
+      </div>
+
+      <!-- side column -->
+      <aside class="chat-side">
+        <h3 data-en="Image Preview" data-ar="معاينة الصورة">Image Preview</h3>
+        <div id="imgPreview" class="preview-box">
+          <span data-en="No image" data-ar="لا توجد صورة">No image</span>
+        </div>
+
+        <button id="uploadImageBtn" class="upload-btn" data-en="Upload Image" data-ar="رفع صورة">Upload Image</button>
+
+        <div class="suggest-box">
+          <h4 data-en="Suggested Actions:" data-ar="الإجراءات المقترحة:">Suggested Actions:</h4>
+          <ul id="suggestList">
+            <li data-en="Ask: 'What is wrong with my plant?'" data-ar="اسأل: 'ما خطب نباتي؟'">Ask: "What is wrong with my plant?"</li>
+            <li data-en="Upload a close-up image of the leaf" data-ar="ارفع صورة مقربة من الورقة">Upload a close-up image of the leaf</li>
+            <li data-en="Mention recent watering or fertilizer" data-ar="اذكر الري أو السماد الأخير">Mention recent watering or fertilizer</li>
+          </ul>
+        </div>
+      </aside>
+
+    </div>
+
+    <footer class="chat-footer">© 2025 • Ecosense • AI Chat</footer>
+  </main>
+
+  <!-- Put chat-specific JS after your unified script.js or merge into it -->
+  <script src="script.js"></script>
+  <!-- If you prefer an independent file, place the JS snippet I gave you in a new file chat.js and include here. -->
+</body>
+</html>

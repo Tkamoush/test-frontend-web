@@ -1,0 +1,177 @@
+<!doctype html>
+<html id="htmlElement" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title data-en="User Profile" data-ar="الملف الشخصي">User Profile</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">
+    <img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo">
+  </div>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html" data-key="home">Home</a>
+    <a href="dataset.html" data-key="dataset">Dataset</a>
+    <a href="analysis.html" data-key="analysis">Analysis</a>
+    <a href="prediction.html" data-key="prediction">Prediction</a>
+    <a href="about.html" data-key="about">About</a>
+  </nav>
+
+  <div class="nav-actions">
+    <button class="icon-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+    <button class="icon-btn" id="langBtn"><i class="fa-solid fa-globe"></i></button>
+    <button class="icon-btn" id="themeBtn"><i class="fa-solid fa-sun"></i></button>
+  </div>
+</header>
+
+
+
+<!-- MAIN -->
+<main class="page-container">
+
+  <section class="page-header">
+    <h1 data-en="User Profile" data-ar="الملف الشخصي">User Profile</h1>
+    <p class="subtitle" data-en="Account details and recent activity" data-ar="تفاصيل الحساب والنشاط الأخير">
+      Account details and recent activity
+    </p>
+  </section>
+
+  <section class="profile-row">
+
+    <!-- LEFT CARD -->
+    <div class="profile-card">
+      <div class="profile-avatar">
+        <div class="avatar-circle">U</div>
+      </div>
+
+      <div class="profile-info">
+        <h3 data-en="User Name" data-ar="اسم المستخدم">User Name</h3>
+        <p>user@email.com</p>
+
+        <p>
+          <strong data-en="Account Type" data-ar="نوع الحساب">Account Type</strong>:
+          <span class="green-text" data-en="Admin" data-ar="مدير">Admin</span>
+        </p>
+
+        <p>
+          <strong data-en="Member Since" data-ar="عضو منذ">Member Since</strong>: 2023
+        </p>
+      </div>
+
+      <div class="profile-actions">
+        <button class="btn primary small" data-en="Edit Profile" data-ar="تعديل الملف">Edit Profile</button>
+        <button class="btn danger small" data-en="Logout" data-ar="تسجيل الخروج">Logout</button>
+      </div>
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="activity-card">
+      <h3 data-en="Recent Activity" data-ar="النشاط الأخير">Recent Activity</h3>
+
+      <ul class="activity-list">
+
+        <li><span class="green-dot"></span>
+          <span data-en="Prediction run: Healthy (92%)" data-ar="تشغيل تنبؤ: سليم (92%)">Prediction run: Healthy (92%)</span>
+        </li>
+
+        <li><span class="green-dot"></span>
+          <span data-en="Dataset uploaded: CSV (5 rows)" data-ar="تم رفع البيانات: CSV (٥ صفوف)">
+            Dataset uploaded: CSV (5 rows)
+          </span>
+        </li>
+
+        <li><span data-en="Viewed sensor #03" data-ar="تم عرض حساس #03">Viewed sensor #03</span></li>
+        <li><span data-en="Checked plant report" data-ar="تم مراجعة تقرير النبات">Checked plant report</span></li>
+        <li><span data-en="Logged in from Chrome" data-ar="تسجيل دخول من Chrome">Logged in from Chrome</span></li>
+
+        <hr>
+
+        <li><span class="yellow-dot"></span>
+          <span data-en="Prediction run: Stressed (75%)" data-ar="تنبؤ: تحت الضغط (75%)">
+            Prediction run: Stressed (75%)
+          </span>
+        </li>
+
+        <li><span data-en="Sensor offline: #02" data-ar="حساس غير متصل: #02">
+          Sensor offline: #02</span>
+        </li>
+
+        <hr>
+
+        <li><span data-en="New login: Windows device" data-ar="تسجيل دخول جديد: جهاز Windows">
+          New login: Windows device
+        </span></li>
+
+      </ul>
+    </div>
+<!-- EDIT PROFILE MODAL -->
+<div id="editModal" class="modal-overlay">
+  <div class="modal-box">
+    <h3 data-en="Edit Profile" data-ar="تعديل الملف الشخصي">Edit Profile</h3>
+
+    <label data-en="User Name" data-ar="اسم المستخدم">User Name</label>
+    <input id="editName" type="text" placeholder="User Name">
+
+    <label data-en="Email" data-ar="البريد الإلكتروني">Email</label>
+    <input id="editEmail" type="email" placeholder="Email">
+
+    <label data-en="Password" data-ar="كلمة المرور">Password</label>
+    <input id="editPass" type="password" placeholder="********">
+
+    <div class="modal-actions">
+      <button id="saveProfile" class="btn primary small" data-en="Save" data-ar="حفظ">Save</button>
+      <button id="closeModal" class="btn danger small" data-en="Cancel" data-ar="إلغاء">Cancel</button>
+    </div>
+  </div>
+</div>
+
+  </section>
+
+  <footer class="page-footer">
+    © 2025 • Ecosense • User Profile
+  </footer>
+
+</main>
+
+<!-- SIDE MENU (reused) -->
+  <div id="sideMenu" class="side-menu">
+    <div class="side-header">
+      <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+      <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+   <ul class="menu-list">
+
+  <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+
+  <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+
+  <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+
+  <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+
+  <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+
+   <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+  <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+
+  <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+
+  <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+
+  <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الادارة">Admin Panel</li>
+
+</ul>
+
+
+<script src="script.js"></script>
+</body>
+</html>

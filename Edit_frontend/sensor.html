@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlElement">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img">
+    </div>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html" data-en="Home" data-ar="الرئيسية">Home</a>
+        <a href="dataset.html" data-en="Dataset" data-ar="البيانات">Dataset</a>
+        <a href="analysis.html" data-en="Analysis" data-ar="التحليل">Analysis</a>
+        <a href="prediction.html" data-en="Prediction" data-ar="التنبؤ">Prediction</a>
+        <a href="about.html" data-en="About" data-ar="حول">About</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="icon-btn" id="menuBtn"><i class="fa-solid fa-bars"></i></button>
+        <button class="icon-btn" id="langBtn"><i class="fa-solid fa-globe"></i></button>
+        <button class="icon-btn" id="themeBtn"><i class="fa-solid fa-sun"></i></button>
+    </div>
+</header>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu">
+    <div class="side-header">
+        <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+        <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="menu-list">
+
+        <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+        <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+        <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+        <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+        <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="دردشة الذكاء الاصطناعي">AI Chat</li>
+        <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+        <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+        <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+        <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+        <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الإدارة">Admin Panel</li>
+
+    </ul>
+</div>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+<!-- MAIN CONTENT -->
+<main class="page-container">
+
+    <!-- MOVED DOWN & TRANSLATED -->
+    <section class="page-header" style="margin-top: 35px;">
+        <h1 data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</h1>
+
+        <p class="subtitle"
+           data-en="Detailed view of sensor performance and readings"
+           data-ar="عرض تفصيلي لأداء الحساس وقراءات المستشعر">
+           Detailed view of sensor performance and readings
+        </p>
+    </section>
+
+    <!-- SENSOR INFO + CHART -->
+    <section class="sensor-grid">
+
+        <!-- SENSOR CARD -->
+        <div class="sensor-card">
+            <h3 data-en="Sensor #03" data-ar="المستشعر #03">Sensor #03</h3>
+
+            <p><strong data-en="Location:" data-ar="الموقع:">Location:</strong> <span data-en="Greenhouse A" data-ar="الصوبة A">Greenhouse A</span></p>
+            <p><strong data-en="Status:" data-ar="الحالة:">Status:</strong> <span class="green-text" data-en="Online" data-ar="متصل">Online</span></p>
+            <p><strong data-en="Battery:" data-ar="البطارية:">Battery:</strong> 87%</p>
+            <p><strong data-en="Last Update:" data-ar="آخر تحديث:">Last Update:</strong> <span data-en="3 minutes ago" data-ar="منذ 3 دقائق">3 minutes ago</span></p>
+        </div>
+
+        <!-- CHART -->
+        <div class="sensor-chart">
+            <h3 data-en="Sensor Output (Last 7 Days)" data-ar="قراءات المستشعر (آخر 7 أيام)">
+                Sensor Output (Last 7 Days)
+            </h3>
+            <canvas id="sensorOutputChart"></canvas>
+        </div>
+    </section>
+
+    <!-- LIVE + HISTORY -->
+    <section class="sensor-grid">
+
+        <!-- LIVE READINGS -->
+        <div class="sensor-card">
+            <h3 data-en="Real-Time Readings" data-ar="القراءات اللحظية">Real-Time Readings</h3>
+
+            <p><strong data-en="Soil Moisture:" data-ar="رطوبة التربة:">Soil Moisture:</strong> 41%</p>
+            <p><strong data-en="Temperature:" data-ar="درجة الحرارة:">Temperature:</strong> 24°C</p>
+            <p><strong data-en="Humidity:" data-ar="الرطوبة:">Humidity:</strong> 53%</p>
+            <p><strong data-en="Light Intensity:" data-ar="شدة الإضاءة:">Light Intensity:</strong> 730 lux</p>
+        </div>
+
+        <!-- HISTORY TABLE -->
+        <div class="sensor-card">
+            <h3 data-en="Reading History" data-ar="سجل القراءات">Reading History</h3>
+
+            <table class="recent-table">
+                <thead>
+                    <tr>
+                        <th data-en="Date" data-ar="التاريخ">Date</th>
+                        <th data-en="Moisture" data-ar="الرطوبة">Moisture</th>
+                        <th data-en="Temp" data-ar="درجة الحرارة">Temp</th>
+                        <th data-en="Humidity" data-ar="الرطوبة">Humidity</th>
+                        <th data-en="Light" data-ar="الإضاءة">Light</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-11-21</td>
+                        <td>41%</td>
+                        <td>24°C</td>
+                        <td>53%</td>
+                        <td>730</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" id="htmlElement">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- استخدم ملف الستايل الموحد -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <!-- NAVBAR (مشترك مثل صفحاتك الأخرى) -->
+  <header class="navbar">
+    <div class="logo"><img src="images/Logo-removebg-preview-removebg-preview.png" class="logo-img" alt="Logo"></div>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html" data-key="home">Home</a>
+      <a href="dashboard.html" data-key="dashboard">Dashboard</a>
+      <a href="dataset.html" data-key="dataset">Dataset</a>
+      <a href="analysis.html" data-key="analysis">Analysis</a>
+      <a href="prediction.html" data-key="prediction">Prediction</a>
+      <a href="about.html" data-key="about">About</a>
+</nav>
+
+
+    <div class="nav-actions">
+        <button class="icon-btn" id="menuBtn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+      <button class="icon-btn" id="langBtn" aria-label="Toggle language"><i class="fa-solid fa-globe"></i></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+    </div>
+  </header>
+
+  <!-- MAIN DASHBOARD -->
+  <main class="dashboard-container">
+
+    <section class="page-header">
+      <h1 data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</h1>
+      <p class="subtitle" data-en="System analytics and sensor performance overview"
+         data-ar="نظرة عامة على تحليلات النظام وأداء الحساسات">
+         System analytics and sensor performance overview
+      </p>
+    </section>
+
+    <!-- QUICK STATS -->
+    <section class="stat-cards">
+      <div class="card stat">
+        <div class="card-title" data-en="Plants Monitored" data-ar="النباتات المراقبة">Plants Monitored</div>
+        <div class="value" id="plantsMon">—</div>
+      </div>
+
+      <div class="card stat">
+        <div class="card-title" data-en="Sensors Online" data-ar="الحساسات المتصلة">Sensors Online</div>
+        <div class="value" id="sensorsOnline">—</div>
+      </div>
+
+      <div class="card stat">
+        <div class="card-title" data-en="AI Accuracy" data-ar="دقة الذكاء">AI Accuracy</div>
+        <div class="value" id="aiAccuracy">—</div>
+      </div>
+
+      <div class="card stat">
+        <div class="card-title" data-en="Alerts Today" data-ar="التنبيهات اليوم">Alerts Today</div>
+        <div class="value" id="alertsToday">—</div>
+      </div>
+    </section>
+
+    <!-- CHART ROW -->
+    <section class="charts-row">
+      <div class="chart-card large">
+        <h3 data-en="Plant Health Trend (30 days)" data-ar="اتجاه صحة النبات (30 يوم)">Plant Health Trend (30 days)</h3>
+        <canvas id="trendChart" aria-label="Plant trend chart"></canvas>
+      </div>
+
+      <div class="chart-card small">
+        <h3 data-en="Sensor Performance" data-ar="أداء الحساسات">Sensor Performance</h3>
+        <canvas id="sensorChart" aria-label="Sensor performance chart"></canvas>
+      </div>
+    </section>
+
+    <!-- RECENT PREDICTIONS -->
+    <section class="recent-card">
+      <h3 data-en="Recent Predictions" data-ar="أحدث التنبؤات">Recent Predictions</h3>
+      <div class="table-wrapper">
+        <table class="recent-table" id="recentTable" aria-label="Recent predictions">
+          <thead>
+            <tr>
+              <th data-en="Date" data-ar="التاريخ">Date</th>
+              <th data-en="Status" data-ar="الحالة">Status</th>
+              <th data-en="Confidence" data-ar="الثقة">Confidence</th>
+              <th data-en="Moisture" data-ar="الرطوبة">Moisture</th>
+              <th data-en="Temp" data-ar="درجة الحرارة">Temp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- populated by JS -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- append Dashboard-specific JS into your script.js (see below) -->
+  <script>
+    /* dashboard-specific init is in the JS snippet i gave you.
+       If you paste that code into your single script.js, this page will auto-init.
+    */
+  </script>
+
+<!-- SIDE MENU -->
+<div id="sideMenu" class="side-menu">
+    <div class="side-header">
+        <h3 data-en="Menu" data-ar="القائمة">Menu</h3>
+        <button id="closeMenu" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <ul class="menu-list">
+        <li class="menu-item" data-page="index.html" data-en="Home" data-ar="الرئيسية">Home</li>
+        <li class="menu-item" data-page="dashboard.html" data-en="Dashboard" data-ar="لوحة التحكم">Dashboard</li>
+        <li class="menu-item" data-page="sensor.html" data-en="Sensor Details" data-ar="تفاصيل الحساسات">Sensor Details</li>
+        <li class="menu-item" data-page="history.html" data-en="Prediction History" data-ar="سجل التنبؤات">Prediction History</li>
+        <li class="menu-item" data-page="chat.html" data-en="AI Chat" data-ar="الدردشة مع الذكاء الاصطناعي">AI Chat</li>
+        <li class="menu-item" data-page="upload.html" data-en="Upload Dataset" data-ar="رفع البيانات">Upload Dataset</li>
+
+        <li class="menu-item" data-page="analysis.html" data-en="Data Analysis" data-ar="تحليل البيانات">Data Analysis</li>
+        <li class="menu-item" data-page="plant-report.html" data-en="Plant Report" data-ar="تقرير النبات">Plant Report</li>
+        <li class="menu-item" data-page="profile.html" data-en="User Profile" data-ar="الملف الشخصي">User Profile</li>
+        <li class="menu-item" data-page="admin.html" data-en="Admin Panel" data-ar="لوحة الادارة">Admin Panel</li>
+    </ul>
+</div>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+
+  <script> window.DASHBOARD_API_URL = "https://api.example.com/dashboard"; </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
